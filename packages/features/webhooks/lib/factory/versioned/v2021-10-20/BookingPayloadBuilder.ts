@@ -180,7 +180,7 @@ export class BookingPayloadBuilder extends BaseBookingPayloadBuilder {
 
     const attendeesWithLegacyFields =
       params.evt.attendees?.map((a) => {
-        const utcOffset = getUTCOffsetByTimezone(a.timeZone, params.evt.startTime);
+        const utcOffset = getUTCOffsetByTimezone(params.evt.organizer?.timeZone, params.evt.startTime);
         const nameParts =
           "firstName" in a && "lastName" in a
             ? {
